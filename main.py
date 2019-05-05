@@ -214,12 +214,17 @@ for filename in os.listdir(args.indir):
 Final_Song_Dictionary={"characterizations":List_of_Song_Dictionaries}
 print(Final_Song_Dictionary)
 
-class GetNameInfoTestCase:
-    def
+class GetNameInfoTestCase(unittest.TestCase):
+    def test_songID(self):
+	c=get_name_info('1234~Spice-Girls~Sleigh-Ride.txt')
+	self.assertEqual(c[0],'1234')
     
     def
     
     def
+suite = unittest.defaultTestLoader.loadTestsFromTestCase(GetNameInfoTestCase)
+# Run each test in suite
+unittest.TextTestRunner().run(suite)
 
 class LoveTestCase(unittest.TestCase):
     def 
