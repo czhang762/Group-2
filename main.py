@@ -114,7 +114,32 @@ def kids_safe(lyrics):
         return 0.1
     else:
         return 0
-            
+
+
+def length(size):
+    if (size <= 14):
+        return 0
+    elif (size <= 500) and (size > 14):
+        return 0.1
+    elif (size <= 1000) and (size > 500):
+        return 0.2
+    elif (size <= 1500) and (size > 1000):
+        return 0.3
+    elif (size <= 2000) and (size > 1500):
+        return 0.4
+    elif (size <= 2500) and (size > 2000):
+        return 0.5
+    elif (size <= 3000) and (size > 2500):
+        return 0.6
+    elif (size <= 3500) and (size > 3000):
+        return 0.7
+    elif (size <= 4000) and (size > 3500):
+        return 0.8
+    elif (size <= 4500) and (size > 4000):
+        return 0.9
+    else:
+	return 1
+
 class Song: 
 
 	##creates a song object with the calculated characterizations as the attributes
