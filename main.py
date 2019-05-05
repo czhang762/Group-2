@@ -92,7 +92,7 @@ def kids_safe(lyrics):
             curse_count +=1
         else:
             continue
-    if curse_count = 0:
+    if curse_count == 0:
         return 1
     elif (curse_count <= 3) and (curse_count >= 1):
         return 0.9
