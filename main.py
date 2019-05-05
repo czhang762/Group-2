@@ -30,7 +30,29 @@ def get_name_info(title_str):
 	
 	# Returns list ['song id','song artist','song name']
 	return info_list 
-	
+
+def love(lyrics):
+    love_count=0
+    love_words=["love","heart","loved","cherish","adore","lover","wife","unconditional","affection", "amore", "enchant", "muse", "relationship", "seduce", "relationships", "darling", "dear"]    
+    for word in lyrics:
+        if word in love_words:
+            love_count += 1
+        else:
+            continue
+            
+    if love_count <= 1:
+        return 0
+    elif (love_count  <= 10) and (love_count  >1):
+        return 0.2
+    elif (love_count  <= 20) and (love_count  >10):
+        return 0.4
+    elif (love_count  <= 30) and (love_count  >20):
+        return 0.6
+    elif (love_count  <= 40) and (love_count  >30):
+        return 0.8
+    else:
+        return 1	
+
 class Song: 
 
 	##creates a song object with the calculated characterizations as the attributes
