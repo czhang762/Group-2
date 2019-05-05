@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 from textblob import TextBlob
+import unittest
 
 
 parser = argparse.ArgumentParser(description='song folder filepath')
@@ -212,3 +213,55 @@ for filename in os.listdir(args.indir):
 
 Final_Song_Dictionary={"characterizations":List_of_Song_Dictionaries}
 print(Final_Song_Dictionary)
+
+class GetNameInfoTestCase:
+    def
+    
+    def
+    
+    def
+
+class LoveTestCase(unittest.TestCase):
+    def 
+    
+    def
+    
+    def
+    
+class MoodTestCase(unittest.TestCase):   
+    def
+    
+    def
+    
+    def
+
+class KidsSafeTestCase(unittest.TestCase):
+    def
+    
+    
+    def
+    
+    
+    def
+ 
+
+class LengthTestCase(unittest.TestCase)::
+    def
+    
+    def
+    
+    def
+class ComplexityTestCase(unittest.TestCase):
+    def
+    
+    def
+    
+    def
+class SongDictionaryTestCase(unittest.TestCase):
+    
+    def
+    
+    def
+    
+    def
+
