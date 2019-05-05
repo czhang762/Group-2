@@ -115,7 +115,6 @@ def kids_safe(lyrics):
     else:
         return 0
 
-
 def length(size):
     if (size <= 14):
         return 0
@@ -139,6 +138,37 @@ def length(size):
         return 0.9
     else:
 	return 1
+
+def complexity(lyrics):
+    advanced = 0
+    total = 0
+    for word in lyrics:
+        total += 1
+        if len(word) >7:
+            advanced += 1
+    advanced_total = (advanced/total)*100
+    if advanced_total <= 5:
+        return 0
+    elif (advanced_total <= 10) and (advanced_total >5):
+        return 0.1
+    elif (advanced_total <= 15) and (advanced_total >10):
+        return 0.2
+    elif (advanced_total <= 20) and (advanced_total >15):
+        return 0.3
+    elif (advanced_total <= 25) and (advanced_total >20):
+        return 0.4
+    elif (advanced_total <= 30) and (advanced_total >25):
+        return 0.5
+    elif (advanced_total <= 35) and (advanced_total >30):
+        return 0.6
+    elif (advanced_total <= 40) and (advanced_total >35):
+        return 0.7
+    elif (advanced_total <= 45) and (advanced_total >40):
+        return 0.8
+    elif (advanced_total <= 50) and (advanced_total >45):
+        return 0.9
+    else:
+        return 1
 
 class Song: 
 
