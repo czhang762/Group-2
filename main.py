@@ -83,8 +83,38 @@ def mood(lyrics):
     else:
         return 1
 
-
-
+def kids_safe(lyrics):
+    curse_words=['anal', 'anus', 'arse', 'ass', 'ballsack', 'balls', 'bastard', 'bitch', 'biatch', 'blowjob', 'blow', 'job', 'bollock', 'bollok', 'boner', 'boob', 'bum', 'butt', 'clitoris', 'cock',  'crap', 'cunt', 'damn', 'dick', 'dildo', 'fag', 'fuck', 'goddamn', 'god', 'damn', 'hell', 'homo', 'jerk', 'jizz', 'knob', 'end', 'labia', 'muff', 'nigger', 'nigga', 'penis', 'piss', 'poop', 'prick', 'pube', 'pussy', 'queer', 'shitty', 'sex', 'shit', 'shits', 'slut', 'tit', 'tosser', 'twat', 'vagina', 'wank', 'whore', 'wtf']
+    curse_count=0  
+    song_lyrics=lyrics.replace('-', ' ').split()  
+    for word in song_lyrics:
+        if (word in curse_words) or (word.__contains__('*')):
+            curse_count +=1
+        else:
+            continue
+    if curse_count = 0:
+        return 1
+    elif (curse_count <= 3) and (curse_count >= 1):
+        return 0.9
+    elif (curse_count <= 5) and (curse_count > 3):
+        return 0.8
+    elif (curse_count <= 7) and (curse_count > 5):
+        return 0.7
+    elif (curse_count <= 9) and (curse_count > 7):
+        return 0.6
+    elif (curse_count <= 11) and (curse_count > 9):
+        return 0.5
+    elif (curse_count <= 13) and (curse_count > 11):
+        return 0.4
+    elif (curse_count <= 15) and (curse_count > 13):
+        return 0.3
+    elif (curse_count <= 17) and (curse_count > 15):
+        return 0.2
+    elif (curse_count <= 19) and (curse_count > 17):
+        return 0.1
+    else:
+        return 0
+            
 class Song: 
 
 	##creates a song object with the calculated characterizations as the attributes
