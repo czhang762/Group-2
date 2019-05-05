@@ -1,6 +1,8 @@
 import argparse
 import os
 import re
+from textblob import TextBlob
+
 
 parser = argparse.ArgumentParser(description='song folder filepath')
 parser.add_argument('indir', type=str, help='Input dir for songs folder')
@@ -52,6 +54,36 @@ def love(lyrics):
         return 0.8
     else:
         return 1	
+
+
+def mood(lyrics):
+    blob = TextBlob(lyrics)
+    polar = blob.sentiment.polarity
+    mood = round(polar,1)
+    if mood <= -0.9:
+        return 0
+    elif (mood <= -0.7) and (mood > -0.9):
+        return 0.1
+    elif (mood <= -0.5) and (mood > -0.7):  
+        return 0.2
+    elif (mood <= -0.3) and (mood > -0.5):
+        return 0.3
+    elif (mood <= -0.1) and (mood > -0.3):
+        return 0.4
+    elif (mood <= 0.1) and (mood > -0.1):
+        return 0.5
+    elif (mood <= 0.3) and (mood > 0.1): 
+        return 0.6
+    elif (mood <= 0.5) and (mood > 0.3):  
+        return 0.7
+    elif (mood <= 0.7) and (mood > 0.5): 
+        return 0.8
+    elif (mood <= 0.9) and (mood > 0.7):   
+        return 0.9
+    else:
+        return 1
+
+
 
 class Song: 
 
