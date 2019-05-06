@@ -38,7 +38,40 @@ suite = unittest.defaultTestLoader.loadTestsFromTestCase(LoveTestCase)
 # Run each test in suite
 unittest.TextTestRunner().run(suite)  
 
+class MoodTestCase(unittest.TestCase):   
 
+    def test_zeroscore(self):
+        self.assertEqual(mood('You are the worst.'),0.0)
+
+    def test_onescore(self):
+        self.assertEqual(mood('i hate everything'),0.1)
+
+    def test_twoscore(self):
+        self.assertEqual(mood('I did not feel angry or depressed I did not feel anything at all I did not want to go to bed'),0.2)
+
+    #def test_threescore(self):
+    #    self.assertEqual(mood('',0.3)
+
+    def test_fourscore(self):
+        self.assertEqual(mood('bad things can happen quickly'),0.4) 
+    
+    def test_fivescore(self):
+        self.assertEqual(mood('Within hours'),0.5)
+
+    def test_sixscore(self):
+        self.assertEqual(mood('On April 29 someone shared a post titled "Pete Buttigieg Sexually Assaulted Me" on Medium, a site that lets anyone upload stories, essays and any other bit of text. It was attributed to a college student named Hunter Kelly.'),0.6)
+
+    def test_sevenscore(self):
+        self.assertEqual(mood('i love everything. everything is super great.'),0.7)
+
+    def test_eightscore(self):
+        self.assertEqual(mood('I would do anything to make her happy. I could hear their happy laughter in the other room. She had a very happy childhood. They have had a very happy marriage.'),0.8)
+    
+    def test_ninescore(self):
+        self.assertEqual(mood('happy unicorns are so hopeful'),0.9)
+
+    #def test_tenscore(self):
+        #self.assertEqual(mood('',1.0)
 
 class KidsSafeTestCase(unittest.TestCase):
     def test_no_curse(self):
