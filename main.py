@@ -176,7 +176,7 @@ class Song:
 
 	##creates a song object with the calculated characterizations as the attributes
 	def __init__(self, lyrics, size):
-		self.kid_safe_score=kid_safe(lyrics)
+		self.kid_safe_score=kids_safe(lyrics)
 		self.love_score=love(lyrics)
 		self.mood_score=mood(lyrics)
 		self.length_score=length(size)
