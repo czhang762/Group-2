@@ -1,10 +1,22 @@
 import unittest
 
+
+class GetNameInfoTestCase(unittest.TestCase):
+    def test_songID(self):
+        c=get_name_info('1234~Spice-Ladies~Rock-Road[lala].txt')
+        self.assertEqual(c[0],'1234')
+    def test_song_artist(self):
+        name=get_name_info('1234~Spice-Ladies~Rock-Road[lala].txt')
+        self.assertEqual(name[1],'Spice Ladies')
+    def test_song_name(self):
+        s_name=get_name_info('1234~Spice-Ladies~Rock-Road[lala].txt')
+        self.assertEqual(s_name[2],'Rock Road')
+
 class LoveTestCase(unittest.TestCase):
     def test_not_love_song(self):
         lyrics = 'I love you'
-        self.assertEqual(love(lyrics), 0)
-        
+        self.assertEqual(love(lyrics), 0)  
+    
     def test_love_score_2(self):
         lyrics = 'Love love love heart and sometimes it was not there. My affection for my lover or my wife died'
         self.assertEqual(love(lyrics), 0.2)
