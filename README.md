@@ -5,4 +5,7 @@ Cindy Zhang cz2461
 Christine Rothacker crr2153
 
 
-# What is it? 
+# What is it?
+
+
+#Main Features:
