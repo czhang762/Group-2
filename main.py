@@ -89,10 +89,10 @@ def kids_safe(lyrics):
 	curse_count=0    
 	song_lyrics=lyrics.replace('-', ' ').split()  
 	for word in song_lyrics:
-        if (word in curse_words) or (word.__contains__('*')):
-            curse_count +=1
-        else:
-            continue
+        	if (word in curse_words) or (word.__contains__('*')):
+            		curse_count +=1
+        	else:
+            		continue
 	if curse_count == 0:
 		return 1
 	elif (curse_count <= 3) and (curse_count >= 1):
