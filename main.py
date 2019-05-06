@@ -209,7 +209,7 @@ for filename in os.listdir(args.indir):
 			song_lyrics=song_file.read().lower()
 			song_lyrics=song_lyrics.translate(None, string.punctuation)
 			language=detect(song_lyrics) 
-            		if(language=='en'):
+			if(language=='en'):
 				curr_song=Song(song_lyrics, song_size)
 				current_song_dict=curr_song.to_dict(song_info_from_title)
 				List_of_Song_Dictionaries.append(current_song_dict)
