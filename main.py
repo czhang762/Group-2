@@ -2,7 +2,9 @@ import argparse
 import os
 import re
 from textblob import TextBlob
-import unittest
+import collections
+from collections import OrderedDict
+from langdetect import detect
 
 
 parser = argparse.ArgumentParser(description='song folder filepath')
@@ -207,9 +209,11 @@ for filename in os.listdir(args.indir):
 		song_size=os.stat(song_path).st_size
 		with open(song_path) as song_file:
 			song_lyrics=song_file.read().lower()
-			curr_song=Song(song_lyrics, song_size)
-			current_song_dict=curr_song.to_dict(song_info_from_title)
-			List_of_Song_Dictionaries.append(current_song_dict)
+			language=detect(song_lyrics) 
+            		if(language=='en'):
+				curr_song=Song(song_lyrics, song_size)
+				current_song_dict=curr_song.to_dict(song_info_from_title)
+				List_of_Song_Dictionaries.append(current_song_dict)
 
 Final_Song_Dictionary={"characterizations":List_of_Song_Dictionaries}
 print(Final_Song_Dictionary)
