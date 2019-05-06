@@ -198,7 +198,7 @@ class Song:
 		#song_dict={"id":song_info[0],"artist":song_info[1],"title":song_info[2],"kid_safe":self.kid_safe_score,"love":self.love_score,"mood":self.mood_score,"length":self.length_score,"complexity":self.complexity_score}
 		#song_ordered_dict=collections.OrderedDict(song_dict)
 		return od
-def main()
+def main():
 	Final_Song_Dictionary={}
 	List_of_Song_Dictionaries=[]
 	for filename in os.listdir(args.indir):
