@@ -37,141 +37,141 @@ def get_name_info(title_str):
 	return info_list 
 
 def love(lyrics):
-    love_count=0
-    love_words=["love","heart","loved","cherish","adore","lover","wife","unconditional","affection", "amore", "enchant", "muse", "relationship", "seduce", "relationships", "darling", "dear"]    
-    for word in lyrics:
-        if word in love_words:
-            love_count += 1
-        else:
-            continue
+	love_count=0
+	love_words=["love","heart","loved","cherish","adore","lover","wife","unconditional","affection", "amore", "enchant", "muse", "relationship", "seduce", "relationships", "darling", "dear"]    
+    	for word in lyrics:
+        	if word in love_words:
+        	love_count += 1
+		else:
+		    continue
             
-    if love_count <= 1:
-        return 0
-    elif (love_count  <= 10) and (love_count  >1):
-        return 0.2
-    elif (love_count  <= 20) and (love_count  >10):
-        return 0.4
-    elif (love_count  <= 30) and (love_count  >20):
-        return 0.6
-    elif (love_count  <= 40) and (love_count  >30):
-        return 0.8
-    else:
-        return 1	
+	if love_count <= 1:
+		return 0
+	elif (love_count  <= 10) and (love_count  >1):
+		return 0.2
+	elif (love_count  <= 20) and (love_count  >10):
+		return 0.4
+	elif (love_count  <= 30) and (love_count  >20):
+		return 0.6
+	elif (love_count  <= 40) and (love_count  >30):
+		return 0.8
+	else:
+		return 1	
 
 
 def mood(lyrics):
-    blob = TextBlob(lyrics)
-    polar = blob.sentiment.polarity
-    mood = round(polar,1)
-    if mood <= -0.9:
-        return 0
-    elif (mood <= -0.7) and (mood > -0.9):
-        return 0.1
-    elif (mood <= -0.5) and (mood > -0.7):  
-        return 0.2
-    elif (mood <= -0.3) and (mood > -0.5):
-        return 0.3
-    elif (mood <= -0.1) and (mood > -0.3):
-        return 0.4
-    elif (mood <= 0.1) and (mood > -0.1):
-        return 0.5
-    elif (mood <= 0.3) and (mood > 0.1): 
-        return 0.6
-    elif (mood <= 0.5) and (mood > 0.3):  
-        return 0.7
-    elif (mood <= 0.7) and (mood > 0.5): 
-        return 0.8
-    elif (mood <= 0.9) and (mood > 0.7):   
-        return 0.9
-    else:
-        return 1
+	blob = TextBlob(lyrics)
+	polar = blob.sentiment.polarity
+	mood = round(polar,1)
+	if mood <= -0.9:
+		return 0
+	elif (mood <= -0.7) and (mood > -0.9):
+		return 0.1
+	elif (mood <= -0.5) and (mood > -0.7):  
+		return 0.2
+	elif (mood <= -0.3) and (mood > -0.5):
+		return 0.3
+	elif (mood <= -0.1) and (mood > -0.3):
+		return 0.4
+	elif (mood <= 0.1) and (mood > -0.1):
+		return 0.5
+	elif (mood <= 0.3) and (mood > 0.1): 
+		return 0.6
+	elif (mood <= 0.5) and (mood > 0.3):  
+		return 0.7
+	elif (mood <= 0.7) and (mood > 0.5): 
+		return 0.8
+	elif (mood <= 0.9) and (mood > 0.7):   
+		return 0.9
+	else:
+		return 1
 
 def kids_safe(lyrics):
-    curse_words=['anal', 'anus', 'arse', 'ass', 'ballsack', 'balls', 'bastard', 'bitch', 'biatch', 'blowjob', 'blow', 'job', 'bollock', 'bollok', 'boner', 'boob', 'bum', 'butt', 'clitoris', 'cock',  'crap', 'cunt', 'damn', 'dick', 'dildo', 'fag', 'fuck', 'goddamn', 'god', 'damn', 'hell', 'homo', 'jerk', 'jizz', 'knob', 'end', 'labia', 'muff', 'nigger', 'nigga', 'penis', 'piss', 'poop', 'prick', 'pube', 'pussy', 'queer', 'shitty', 'sex', 'shit', 'shits', 'slut', 'tit', 'tosser', 'twat', 'vagina', 'wank', 'whore', 'wtf']
-    curse_count=0    
-    song_lyrics=lyrics.replace('-', ' ').split()  
-    for word in song_lyrics:
+	curse_words=['anal', 'anus', 'arse', 'ass', 'ballsack', 'balls', 'bastard', 'bitch', 'biatch', 'blowjob', 'blow', 'job', 'bollock', 'bollok', 'boner', 'boob', 'bum', 'butt', 'clitoris', 'cock',  'crap', 'cunt', 'damn', 'dick', 'dildo', 'fag', 'fuck', 'goddamn', 'god', 'damn', 'hell', 'homo', 'jerk', 'jizz', 'knob', 'end', 'labia', 'muff', 'nigger', 'nigga', 'penis', 'piss', 'poop', 'prick', 'pube', 'pussy', 'queer', 'shitty', 'sex', 'shit', 'shits', 'slut', 'tit', 'tosser', 'twat', 'vagina', 'wank', 'whore', 'wtf']
+	curse_count=0    
+	song_lyrics=lyrics.replace('-', ' ').split()  
+	for word in song_lyrics:
         if (word in curse_words) or (word.__contains__('*')):
             curse_count +=1
         else:
             continue
-    if curse_count == 0:
-        return 1
-    elif (curse_count <= 3) and (curse_count >= 1):
-        return 0.9
-    elif (curse_count <= 5) and (curse_count > 3):
-        return 0.8
-    elif (curse_count <= 7) and (curse_count > 5):
-        return 0.7
-    elif (curse_count <= 9) and (curse_count > 7):
-        return 0.6
-    elif (curse_count <= 11) and (curse_count > 9):
-        return 0.5
-    elif (curse_count <= 13) and (curse_count > 11):
-        return 0.4
-    elif (curse_count <= 15) and (curse_count > 13):
-        return 0.3
-    elif (curse_count <= 17) and (curse_count > 15):
-        return 0.2
-    elif (curse_count <= 19) and (curse_count > 17):
-        return 0.1
-    else:
-        return 0
+	if curse_count == 0:
+		return 1
+	elif (curse_count <= 3) and (curse_count >= 1):
+		return 0.9
+	elif (curse_count <= 5) and (curse_count > 3):
+		return 0.8
+	elif (curse_count <= 7) and (curse_count > 5):
+		return 0.7
+	elif (curse_count <= 9) and (curse_count > 7):
+		return 0.6
+	elif (curse_count <= 11) and (curse_count > 9):
+		return 0.5
+	elif (curse_count <= 13) and (curse_count > 11):
+		return 0.4
+	elif (curse_count <= 15) and (curse_count > 13):
+		return 0.3
+	elif (curse_count <= 17) and (curse_count > 15):
+		return 0.2
+	elif (curse_count <= 19) and (curse_count > 17):
+		return 0.1
+	else:
+		return 0
 
 def length(size):
-    if (size <= 14):
-        return 0
-    elif (size <= 500) and (size > 14):
-        return 0.1
-    elif (size <= 1000) and (size > 500):
-        return 0.2
-    elif (size <= 1500) and (size > 1000):
-        return 0.3
-    elif (size <= 2000) and (size > 1500):
-        return 0.4
-    elif (size <= 2500) and (size > 2000):
-        return 0.5
-    elif (size <= 3000) and (size > 2500):
-        return 0.6
-    elif (size <= 3500) and (size > 3000):
-        return 0.7
-    elif (size <= 4000) and (size > 3500):
-        return 0.8
-    elif (size <= 4500) and (size > 4000):
-        return 0.9
-    else:
-	return 1
+	if (size <= 14):
+		return 0
+	elif (size <= 500) and (size > 14):
+		return 0.1
+	elif (size <= 1000) and (size > 500):
+		return 0.2
+	elif (size <= 1500) and (size > 1000):
+		return 0.3
+	elif (size <= 2000) and (size > 1500):
+		return 0.4
+	elif (size <= 2500) and (size > 2000):
+		return 0.5
+	elif (size <= 3000) and (size > 2500):
+		return 0.6
+	elif (size <= 3500) and (size > 3000):
+		return 0.7
+	elif (size <= 4000) and (size > 3500):
+		return 0.8
+	elif (size <= 4500) and (size > 4000):
+		return 0.9
+	else:
+		return 1
 
 def complexity(lyrics):
-    advanced = 0
-    total = 0
-    for word in lyrics.split():
-        total += 1
-        if len(word) >7:
-            advanced += 1
-    advanced_total = (advanced/total)*100
-    if advanced_total <= 5:
-        return 0
-    elif (advanced_total <= 10) and (advanced_total >5):
-        return 0.1
-    elif (advanced_total <= 15) and (advanced_total >10):
-        return 0.2
-    elif (advanced_total <= 20) and (advanced_total >15):
-        return 0.3
-    elif (advanced_total <= 25) and (advanced_total >20):
-        return 0.4
-    elif (advanced_total <= 30) and (advanced_total >25):
-        return 0.5
-    elif (advanced_total <= 35) and (advanced_total >30):
-        return 0.6
-    elif (advanced_total <= 40) and (advanced_total >35):
-        return 0.7
-    elif (advanced_total <= 45) and (advanced_total >40):
-        return 0.8
-    elif (advanced_total <= 50) and (advanced_total >45):
-        return 0.9
-    else:
-        return 1
+	advanced = 0.0
+	total = 0.0
+	for word in lyrics.split():
+        	total += 1
+        	if len(word) >7:
+            		advanced += 1
+	advanced_total = (advanced/total)*100
+	if advanced_total <= 5:
+		return 0
+	elif (advanced_total <= 10) and (advanced_total >5):
+		return 0.1
+	elif (advanced_total <= 15) and (advanced_total >10):
+		return 0.2
+	elif (advanced_total <= 20) and (advanced_total >15):
+		return 0.3
+	elif (advanced_total <= 25) and (advanced_total >20):
+		return 0.4
+	elif (advanced_total <= 30) and (advanced_total >25):
+		return 0.5
+	elif (advanced_total <= 35) and (advanced_total >30):
+		return 0.6
+	elif (advanced_total <= 40) and (advanced_total >35):
+		return 0.7
+	elif (advanced_total <= 45) and (advanced_total >40):
+		return 0.8
+	elif (advanced_total <= 50) and (advanced_total >45):
+		return 0.9
+	else:
+		return 1
 
 class Song: 
 
