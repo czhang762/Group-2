@@ -25,3 +25,40 @@ class LoveTestCase(unittest.TestCase):
 suite = unittest.defaultTestLoader.loadTestsFromTestCase(LoveTestCase)
 # Run each test in suite
 unittest.TextTestRunner().run(suite)  
+
+
+
+class KidsSafeTestCase(unittest.TestCase):
+    def test_no_curse(self):
+        lyrics = "I hate everyone and I am proud of it."
+        self.assertEqual(kids_safe(lyrics),1)
+    
+    def test_kids_score_9(self):
+        lyrics = "I consider you to be a bastard and a bitch."
+        self.assertEqual(kids_safe(lyrics),0.9)
+    
+    def test_kids_score_7(self):
+        lyrics = "My favorite curse words are: anal anus arse ass ballsack balls."
+        self.assertEqual(kids_safe(lyrics),0.7)
+        
+    def test_kids_score_5(self):
+        lyrics = "I can be described as blowjob bollock boner bum clitoris cock dick dildo fuck nigger"
+        self.assertEqual(kids_safe(lyrics),0.5)
+        
+    def test_kids_score_3(self):
+        lyrics = "anal anus arse ass ballsack blowjob bollock boner bum clitoris cock dick dildo fuck"
+        self.assertEqual(kids_safe(lyrics),0.3)
+        
+    def test_kids_score_1(self):
+        lyrics = "anal anus arse ass ballsack blowjob bollock boner bum clitoris cock dick dildo fuck fuck fuck fuck fuck"
+        self.assertEqual(kids_safe(lyrics),0.1)
+        
+    def test_not_kids_safe(self):
+        lyrics = "biatch blowjob blow job bollock bollok boner boob bum butt clitoris cock crap cunt damn dick dildo fag fuck goddamn hell homo nigga penis piss prick pussy shit tit twat wank"
+        self.assertEqual(kids_safe(lyrics),0)
+    
+
+            
+suite = unittest.defaultTestLoader.loadTestsFromTestCase(KidsSafeTestCase)
+# Run each test in suite
+unittest.TextTestRunner().run(suite) 
