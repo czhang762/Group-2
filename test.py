@@ -102,6 +102,39 @@ class KidsSafeTestCase(unittest.TestCase):
         lyrics = "biatch blowjob blow job bollock bollok boner boob bum butt clitoris cock crap cunt damn dick dildo fag fuck goddamn hell homo nigga penis piss prick pussy shit tit twat wank"
         self.assertEqual(kids_safe(lyrics),0)
     
+class ComplexityTestCase(unittest.TestCase):
+    def test_zeroscore(self):
+        self.assertEqual(complexity('I do not like bugs.'),0.0)
+
+    def test_onescore(self):
+        self.assertEqual(complexity('small small small small small small small small small small complexity'),0.1)
+
+    def test_twoscore(self):
+        self.assertEqual(complexity('small small small small small small small complexity'),0.2)
+
+    def test_threescore(self):
+        self.assertEqual(complexity('small small small small small equestrian'),0.3)
+
+    def test_fourscore(self):
+        self.assertEqual(complexity('small small small small small small small fabulous equestrian'),0.4) 
+    
+    def test_fivescore(self):
+        self.assertEqual(complexity('small small small small small small small small fabulous equestrians gallavanting'),0.5)
+
+    def test_sixscore(self):
+        self.assertEqual(complexity('small small recursion small small recursion'),0.6)
+
+    def test_sevenscore(self):
+        self.assertEqual(complexity('fabulous equestrians gallavanting small small small small small'),0.7)
+
+    def test_eightscore(self):
+        self.assertEqual(complexity('fabulous equestrians gallavanting small small small small'),0.8)
+    
+    def test_ninescore(self):
+        self.assertEqual(complexity('equestrians equestrians small small'),0.9)
+
+    def test_fullscore(self):
+        self.assertEqual(complexity('equestrians equestrians equestrians equestrians'),1.0)
 
             
 suite = unittest.defaultTestLoader.loadTestsFromTestCase(KidsSafeTestCase)
