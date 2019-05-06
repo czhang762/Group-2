@@ -150,7 +150,7 @@ def complexity(lyrics):
         if len(word) >7:
             advanced += 1
     advanced_total = (advanced/total)*100
-    if advanced_total <= 5:
+    if advanced_total <= 5 or total <= 3:
         return 0
     elif (advanced_total <= 10) and (advanced_total >5):
         return 0.1
