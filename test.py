@@ -5,19 +5,19 @@ class LoveTestCase(unittest.TestCase):
         lyrics = 'I love you'
         self.assertEqual(love(lyrics), 0)
         
-    def test_love_score_0.2(self):
+    def test_love_score_2(self):
         lyrics = 'Love love love heart and sometimes it was not there. My affection for my lover or my wife died'
         self.assertEqual(love(lyrics), 0.2)
         
-    def test_love_score_0.4(self):
+    def test_love_score_4(self):
         lyrics = "love heart loved cherish adore lover wife unconditional affection amore enchant muse relationship seduce"
         self.assertEqual(love(lyrics),0.4)
         
-    def test_love_score_0.6(self):
+    def test_love_score_6(self):
         lyrics = "love heart loved cherish adore lover wife unconditional affection amore enchant muse relationship seduce relationships darling dear love heart loved cherish adore lover wife unconditional affection amore enchant muse"
         self.assertEqual(love(lyrics),0.6)
         
-    def test_love_score_0.8(self):
+    def test_love_score_8(self):
         lyrics = "love heart loved cherish adore lover wife unconditional affection amore enchant muse relationship seduce relationships darling dear love heart loved cherish adore lover wife unconditional affection amore enchant muse relationship seduce relationships darling dear"
         self.assertEqual(love(lyrics),0.8)
         
