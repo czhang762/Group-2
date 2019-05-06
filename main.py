@@ -5,7 +5,7 @@ from textblob import TextBlob
 import collections
 from collections import OrderedDict
 from langdetect import detect
-
+import string
 
 parser = argparse.ArgumentParser(description='song folder filepath')
 parser.add_argument('indir', type=str, help='Input dir for songs folder')
@@ -88,7 +88,7 @@ def mood(lyrics):
 
 def kids_safe(lyrics):
     curse_words=['anal', 'anus', 'arse', 'ass', 'ballsack', 'balls', 'bastard', 'bitch', 'biatch', 'blowjob', 'blow', 'job', 'bollock', 'bollok', 'boner', 'boob', 'bum', 'butt', 'clitoris', 'cock',  'crap', 'cunt', 'damn', 'dick', 'dildo', 'fag', 'fuck', 'goddamn', 'god', 'damn', 'hell', 'homo', 'jerk', 'jizz', 'knob', 'end', 'labia', 'muff', 'nigger', 'nigga', 'penis', 'piss', 'poop', 'prick', 'pube', 'pussy', 'queer', 'shitty', 'sex', 'shit', 'shits', 'slut', 'tit', 'tosser', 'twat', 'vagina', 'wank', 'whore', 'wtf']
-    curse_count=0  
+    curse_count=0    
     song_lyrics=lyrics.replace('-', ' ').split()  
     for word in song_lyrics:
         if (word in curse_words) or (word.__contains__('*')):
@@ -209,6 +209,7 @@ for filename in os.listdir(args.indir):
 		song_size=os.stat(song_path).st_size
 		with open(song_path) as song_file:
 			song_lyrics=song_file.read().lower()
+			song_lyrics=song_lyrics.translate(None, string.punctuation)
 			language=detect(song_lyrics) 
             		if(language=='en'):
 				curr_song=Song(song_lyrics, song_size)
