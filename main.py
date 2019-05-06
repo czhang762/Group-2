@@ -39,9 +39,9 @@ def get_name_info(title_str):
 def love(lyrics):
 	love_count=0
 	love_words=["love","heart","loved","cherish","adore","lover","wife","unconditional","affection", "amore", "enchant", "muse", "relationship", "seduce", "relationships", "darling", "dear"]      
-		for word in lyrics:
-			if word in love_words:
-				love_count += 1
+	for word in lyrics:
+		if word in love_words:
+			love_count += 1
             
 	if love_count <= 1:
 		return 0
