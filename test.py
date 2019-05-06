@@ -1,4 +1,6 @@
+import main
 import unittest
+
 
 
 class GetNameInfoTestCase(unittest.TestCase):
@@ -33,10 +35,7 @@ class LoveTestCase(unittest.TestCase):
         lyrics = "love heart loved cherish adore lover wife unconditional affection amore enchant muse relationship seduce relationships darling dear love heart loved cherish adore lover wife unconditional affection amore enchant muse relationship seduce relationships darling dear"
         self.assertEqual(love(lyrics),0.8)
         
-    
-suite = unittest.defaultTestLoader.loadTestsFromTestCase(LoveTestCase)
-# Run each test in suite
-unittest.TextTestRunner().run(suite)  
+     
 
 class LengthTestCase(unittest.TestCase):
     def test_zeroscore(self):
@@ -83,8 +82,7 @@ class MoodTestCase(unittest.TestCase):
     def test_twoscore(self):
         self.assertEqual(mood('I did not feel angry or depressed I did not feel anything at all I did not want to go to bed'),0.2)
 
-    #def test_threescore(self):
-    #    self.assertEqual(mood('',0.3)
+
 
     def test_fourscore(self):
         self.assertEqual(mood('bad things can happen quickly'),0.4) 
@@ -104,8 +102,6 @@ class MoodTestCase(unittest.TestCase):
     def test_ninescore(self):
         self.assertEqual(mood('happy unicorns are so hopeful'),0.9)
 
-    #def test_tenscore(self):
-        #self.assertEqual(mood('',1.0)
 
 class KidsSafeTestCase(unittest.TestCase):
     def test_no_curse(self):
@@ -171,6 +167,5 @@ class ComplexityTestCase(unittest.TestCase):
         self.assertEqual(complexity('equestrians equestrians equestrians equestrians'),1.0)
 
             
-suite = unittest.defaultTestLoader.loadTestsFromTestCase(KidsSafeTestCase)
-# Run each test in suite
-unittest.TextTestRunner().run(suite) 
+if __name__== '__main__':
+    unittest.main()
