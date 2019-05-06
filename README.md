@@ -1,4 +1,7 @@
+# What is it? 
+
 # Group2
+
 Members:
-Cindy Zhang czhang762@gmail.com
-Christine Rothacker crr2153@columbia.edu
+Cindy Zhang cz2461
+Christine Rothacker crr2153
