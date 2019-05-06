@@ -145,7 +145,7 @@ def length(size):
 def complexity(lyrics):
     advanced = 0
     total = 0
-    for word in lyrics:
+    for word in lyrics.split():
         total += 1
         if len(word) >7:
             advanced += 1
