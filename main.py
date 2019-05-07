@@ -139,32 +139,29 @@ def length(size):
 		return 1
 
 def complexity(lyrics):
-	advanced = 0.0
-	total = 0.0
+	advanced = 0
 	for word in lyrics.split():
-        	total += 1
         	if len(word) >7:
             		advanced += 1
-	advanced_total = (advanced/total)*100
-	if advanced_total <= 5:
+	if advanced <= 5:
 		return 0
-	elif (advanced_total <= 10) and (advanced_total >5):
+	elif (advanced <= 10) and (advanced >5):
 		return 0.1
-	elif (advanced_total <= 15) and (advanced_total >10):
+	elif (advanced <= 15) and (advanced >10):
 		return 0.2
-	elif (advanced_total <= 20) and (advanced_total >15):
+	elif (advanced <= 20) and (advanced >15):
 		return 0.3
-	elif (advanced_total <= 25) and (advanced_total >20):
+	elif (advanced <= 25) and (advanced >20):
 		return 0.4
-	elif (advanced_total <= 30) and (advanced_total >25):
+	elif (advanced <= 30) and (advanced >25):
 		return 0.5
-	elif (advanced_total <= 35) and (advanced_total >30):
+	elif (advanced <= 35) and (advanced >30):
 		return 0.6
-	elif (advanced_total <= 40) and (advanced_total >35):
+	elif (advanced <= 40) and (advanced >35):
 		return 0.7
-	elif (advanced_total <= 45) and (advanced_total >40):
+	elif (advanced <= 45) and (advanced >40):
 		return 0.8
-	elif (advanced_total <= 50) and (advanced_total >45):
+	elif (advanced <= 50) and (advanced >45):
 		return 0.9
 	else:
 		return 1
