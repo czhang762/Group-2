@@ -218,7 +218,8 @@ def main_funct():
 					current_song_dict=curr_song.to_dict(song_info_from_title)
 					List_of_Song_Dictionaries.append(current_song_dict)
 
-	Final_Song_Dictionary={"characterizations":List_of_Song_Dictionaries}
+	Final_Song_Dictionary=["characterizations"]=List_of_Song_Dictionaries
+	Final_Song_Dictionary=json.dumps(Final_Song_Dictionary,indent=4)
 	return Final_Song_Dictionary
 print(main_funct())
 
